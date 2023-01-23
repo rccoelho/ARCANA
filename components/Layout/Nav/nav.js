@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import styles from './Nav.module.scss'
 
-export default function nav() {
+export default function Nav() {
     const [selectedLink, setSelectedLink] = useState("")
 
     return(
