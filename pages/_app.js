@@ -1,5 +1,19 @@
-import '@/styles/globals.scss'
+import Layout from '../components/Layout/Layout'
+import { PT_Serif } from '@next/font/google'
+
+import '../styles/globals.scss'
+
+const ptSerif = PT_Serif({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <Layout>
+      <main className={ptSerif.className}>
+        <Component {...pageProps} />
+      </main>
+    </Layout>
+  )
 }

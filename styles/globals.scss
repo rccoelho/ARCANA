@@ -4,6 +4,14 @@
   margin: 0;
 }
 
+html {
+  background: $background;
+}
+
+main {
+  margin: 0 2rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;

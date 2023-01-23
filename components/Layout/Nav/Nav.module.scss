@@ -1,0 +1,78 @@
+.container {
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+    padding: 0 2rem;
+    display: flex;
+    column-gap: 0.5rem;
+    color: rgba(73, 86, 185, 0.2);
+}
+
+.home-button {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 2.5rem;
+    margin-left: auto;
+    opacity: 0;
+    animation: fadeIn 1s linear 2s forwards;
+}
+
+.column {
+    flex-direction: column;
+    text-align: center;
+    transition: color 0.25s linear;
+}
+
+.container > .title-color, 
+.column > .title-color {
+    opacity: 0;
+    animation: 
+        fadeIn 0.5s ease-in forwards;
+}
+
+.column > *:not(.title-color) {
+    opacity: 0;
+    animation: fadeIn 1s linear 2s forwards;
+}
+
+.selected {
+    color: $secondary;
+}
+
+.column > * {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    transition: transform 0.25s linear;
+}
+
+.column:nth-child(2) {
+    transform: translateY(-4.5rem);
+}
+
+.column:nth-child(4) {
+    transform: translateY(-1.5rem);
+}
+
+.column:nth-child(6) {
+    transform: translateY(-6rem);
+}
+
+.column:hover {
+    color: $secondary;
+    cursor: pointer;
+}
+
+.column:hover > * {
+    transform: rotate(5deg);
+}
+
+.title-color {
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 2.5rem;
+    color: $primary;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
