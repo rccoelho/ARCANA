@@ -1,6 +1,7 @@
 import Layout from '../components/Layout/layout'
 import { PT_Serif } from '@next/font/google'
 
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../styles/globals.scss'
 
 const ptSerif = PT_Serif({

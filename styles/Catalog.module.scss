@@ -1,0 +1,51 @@
+.catalog-container {
+    padding-top: 3rem;
+    border-top: 1px solid $primary;
+    display: flex;
+    column-gap: 5rem;
+}
+
+.arcanas-container {
+    width: 30%;
+    flex-direction: column;
+}
+
+.arcana {
+    cursor: pointer;
+    border: 1px solid rgba($secondary, 0.5);
+    border-radius: 30px;
+    padding: 1rem 3rem;
+    margin: 1rem 0;
+    text-align: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+
+    transition: background 0.2s linear, color 0.2s linear;
+}
+
+.arcana__hover:hover {
+    background: rgba($secondary, 0.2);
+}
+
+.selected-arcana {
+    color: #fff;
+    background: $secondary;
+}
+
+.recipes-container {
+    width: 40%;
+    animation: fadeIn 0.2s linear;
+}
+
+.recipe {
+    border: 1px solid rgba($secondary, 0.5);
+    border-radius: 10px;
+    padding: 1rem 3rem;
+    margin: 1rem 0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}

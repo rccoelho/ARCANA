@@ -1,0 +1,25 @@
+.row-container {
+    // margin-top: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    /* border: 0.01rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 1rem; */
+}
+
+.row-container:nth-of-type(even) {
+    background: rgba($secondary, 0.2);
+}
+
+.col-container {
+    display: flex;
+    /* column-gap: 1rem; */
+}
+
+.col-value {
+    /* flex-grow: 1; */
+    padding: 0.25rem 0;
+    text-align: center;
+}
+
+.col-value:not(:first-child) {
+    border-left: 1px solid $primary;
+}

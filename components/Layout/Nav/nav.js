@@ -12,6 +12,7 @@ export default function Nav() {
                     className={`
                         ${styles["column"]}
                         ${selectedLink == "about" ? styles["selected"] : ""}
+                        ${styles["disabled"]}
                     `}
                     href="/about"
                     onClick={() => setSelectedLink("about")}
@@ -59,6 +60,7 @@ export default function Nav() {
                     className={`
                         ${styles["column"]}
                         ${selectedLink == "contact" ? styles["selected"] : ""}
+                        ${styles["disabled"]}
                     `}
                     href="/contact"
                     onClick={() => setSelectedLink("contact")}
@@ -79,7 +81,7 @@ export default function Nav() {
                     href="/"
                     onClick={() => setSelectedLink("")}
                 >
-                    ⌂
+                    <i class="bi bi-house"></i>
                 </Link>
             </div>
         </>
