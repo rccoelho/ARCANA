@@ -16,8 +16,9 @@ export default function Catalog(props) {
             </Head>
             <div className={styles["catalog-container"]}>
                 <div className={styles["arcanas-container"]}>
-                    { props.arcanas.map(arcana =>  
+                    { props.arcanas.map((arcana, index) =>  
                         <div 
+                            key={index}
                             className={`
                                 ${styles["arcana"]}
                                 ${selectedArcana === arcana.name ? styles["selected-arcana"] : styles["arcana__hover"]}
@@ -30,8 +31,8 @@ export default function Catalog(props) {
                 </div>
                 { selectedArcana ? 
                     <div className={styles["recipes-container"]}>
-                        { props.recipes.map(recipes =>
-                            <div className={styles["recipe"]}>
+                        { props.recipes.map((recipes, index) =>
+                            <div key={index} className={styles["recipe"]}>
                                 {recipes.name}
                             </div>
                         )}

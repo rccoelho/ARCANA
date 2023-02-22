@@ -264,8 +264,8 @@ export default function Search(props) {
                             <div className={styles["header-col"]}>
                                 <h2>Ingredient</h2>
                                 { currentFilteredIngredients.length ? 
-                                    currentFilteredIngredients.map(ingredient => 
-                                        <div style={{maxWidth: headersWidth[4]?.width - 10}} className={styles["header-filter"]} onClick={() => handleSelectedParameter("ingredient", ingredient)}>
+                                    currentFilteredIngredients.map((ingredient, index) => 
+                                        <div key={index} style={{maxWidth: headersWidth[4]?.width - 10}} className={styles["header-filter"]} onClick={() => handleSelectedParameter("ingredient", ingredient)}>
                                             <span>{ingredient}</span>
                                             <span><i className="bi bi-x" /></span>
                                         </div>
