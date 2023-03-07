@@ -11,7 +11,7 @@ export default function Search(props) {
 
     const [headersWidth, setHeadersWidth] = useState([]);
 
-    const [currentFilteredSource, setCurrentFilteredSource] = useState("")
+    const [currentFilteredSource, setCurrentFilteredSource] = useState(null)
     const [currentFilteredColor, setCurrentFilteredColor] = useState("")
     const [currentFilteredIngredients, setCurrentFilteredIngredients] = useState([])
 
@@ -46,7 +46,7 @@ export default function Search(props) {
         switch (filter) {
             case "source":
                 currentFilteredSource === parameter ?
-                    setCurrentFilteredSource('') :
+                    setCurrentFilteredSource(null) :
                     setCurrentFilteredSource(parameter)
                 break;
 
@@ -124,7 +124,7 @@ export default function Search(props) {
 
     const clearFilters = () => {
         setFilteredSet([])
-        setCurrentFilteredSource("")
+        setCurrentFilteredSource(null)
         setCurrentFilteredColor("")
         setCurrentFilteredIngredients([])
         setNoResults(false)
@@ -173,6 +173,7 @@ export default function Search(props) {
                                 `}
                             >
                                 { props.sources.map((source, index) => (
+                                    source.name !== "" &&
                                     <div key={index} onClick={() => handleSelectedParameter("source", source.name)} className={styles["search-option-parameter"]}>
                                         <span>
                                             <i className={checkedFilteredParameter(source.name) ? "bi bi-check-square" : "bi bi-square"} />

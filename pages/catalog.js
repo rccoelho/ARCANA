@@ -3,10 +3,10 @@ import { useState } from "react";
 import styles from "../styles/Catalog.module.scss"
 
 export default function Catalog(props) {
-    const [selectedArcana, setSelectedArcana] = useState("")
+    const [selectedArcana, setSelectedArcana] = useState(null)
 
     const handleSelectedArcana = (arcana) => {
-        selectedArcana === arcana ? setSelectedArcana("") : setSelectedArcana(arcana)
+        selectedArcana === arcana ? setSelectedArcana(null) : setSelectedArcana(arcana)
     }
 
     return(
@@ -16,7 +16,8 @@ export default function Catalog(props) {
             </Head>
             <div className={styles["catalog-container"]}>
                 <div className={styles["arcanas-container"]}>
-                    { props.arcanas.map((arcana, index) =>  
+                    { props.sources.map((arcana, index) =>
+                        arcana.name !== "" &&
                         <div 
                             key={index}
                             className={`
@@ -31,7 +32,9 @@ export default function Catalog(props) {
                 </div>
                 { selectedArcana ? 
                     <div className={styles["recipes-container"]}>
-                        { props.recipes.map((recipes, index) =>
+                        { props.recipes.filter(recipe => 
+                            recipe.source === selectedArcana
+                          ).map((recipes, index) =>
                             <div key={index} className={styles["recipe"]}>
                                 {recipes.name}
                             </div>
@@ -44,23 +47,15 @@ export default function Catalog(props) {
 }
 
 export async function getStaticProps() {
+    const sources_res = await fetch(`${process.env.BASE_API_URI}/recipes/sources`)
+    const sources = await sources_res.json()
+
     const recipes_res = await fetch(`${process.env.BASE_API_URI}/recipes`)
     const recipes = await recipes_res.json()
-
-    // const sources_res = await fetch(`${process.env.BASE_API_URI}/recipes/sources`)
-    // const sources = await sources_res.json()
-
-    // const colors_res = await fetch(`${process.env.BASE_API_URI}/recipes/colors`)
-    // const colors = await colors_res.json()
-
-    // const ingredients_res = await fetch(`${process.env.BASE_API_URI}/ingredients`)
-    // const ingredients = await ingredients_res.json()
-
-    const arcanas = [{name: "Arcano CVNP"}]
   
     return {
       props: {
-        arcanas,
+        sources,
         recipes,
       },
     }
